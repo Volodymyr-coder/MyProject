@@ -1,6 +1,8 @@
 import React from 'react';
 import css from '../css/Layout.module.css';
 import { Outlet, Link, useLocation } from 'react-router-dom';
+import SearchForm from './SearchForm';
+import { onSearchMovie } from '../helpers/searchMovie';
 
 const Layout = () => {
   const location = useLocation();
@@ -11,9 +13,10 @@ const Layout = () => {
         <h1 className={css.title}>
           {isFavoritesPage ? 'Favorites' : 'Movies'}
         </h1>
+        <SearchForm onSubmit={onSearchMovie} />
         <nav className={css.navBar}>
           <Link className={css.link} to="/">
-            Movies
+            Home
           </Link>
           <Link className={css.link} to="/favorites">
             Favorites

@@ -1,10 +1,14 @@
 import React from 'react';
+import css from '../css/SingleMovie.module.css';
 
-const SingleMovie = () => {
+const SingleMovie = ({ movie }) => {
+  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+
   return (
-    <div>
-      <h2>SingleMovie</h2>
-    </div>
+    <li className={css.item}>
+      <img className={css.img} src={imageUrl} alt={movie.title} />
+      <h1 className={css.title}>{movie.title}</h1>
+    </li>
   );
 };
 

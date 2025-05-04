@@ -1,0 +1,24 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.img {
+    margin-bottom: auto;
+    margin-top: auto;
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+.title {
+
+    color: white;
+    font-size: large;
+
+}
