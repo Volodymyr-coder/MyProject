@@ -1,4 +1,4 @@
-import { URL, API_KEY } from '../constants/constants';
+import { URL } from '../constants/constants';
 
 export const fetchTrendingMovies = async () => {
   try {
@@ -6,6 +6,6 @@ export const fetchTrendingMovies = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error('Error fetching trending movies:', error);
+    console.error(error);
   }
 };

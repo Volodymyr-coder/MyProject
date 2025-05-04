@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SingleMovie from './SingleMovie';
 import Loader from './Loader';
-import { fetchTrendingMovies } from '../helpers/fetchData';
+import { fetchTrendingMovies } from '../helpers/fetchMovies';
 
 import css from '../css/Home.module.css';
 
@@ -25,6 +25,7 @@ const Home = () => {
     };
     getMovies();
   }, []);
+
   if (loading) return <Loader />;
   if (error) {
     return <p className={css.error}>{error}</p>;

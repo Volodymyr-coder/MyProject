@@ -1,27 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import { fetchTrendingMovies } from '../helpers/fetchData';
-import css from '../css/Home.module.css';
+import Loader from './Loader';
+import { fetchTrendingTv } from '../helpers/fetchTV';
+import css from '../css/MovieList.module.css';
 
 const MovieList = () => {
-  const [movies, setMovies] = useState([]);
+  const [showTv, setShowTv] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   useEffect(() => {
-    const getMovies = async () => {
-      const { results } = await fetchTrendingMovies();
-      setMovies(results);
+    const getShow = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const { results } = await fetchTrendingTv();
+        console.log(results);
+        setShowTv(results);
+      } catch (error) {
+        setError('Something went wrong. Please try again...');
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
     };
-    getMovies();
+    getShow();
   }, []);
+
+  if (loading) return <Loader />;
+  if (error) {
+    return <p className={css.error}>{error}</p>;
+  }
+
   return (
-    <div className={css.gridContainer}>
-      {movies.map((movie) => {
-        const imageUrl = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
-        return (
-          <li className={css.item} key={movie.id}>
-            <img className={css.img} src={imageUrl} alt={movie.title} />
-            <h1 className={css.title}>{movie.title}</h1>
-          </li>
-        );
-      })}
+    <div>
+      <ul className={css.gridContainer}>
+        {showTv.map((show) => {
+          const imageUrl = `https://image.tmdb.org/t/p/w500${show.backdrop_path}`;
+          return (
+            <li className={css.item} key={show.id}>
+              <img className={css.img} src={imageUrl} alt={show.name} />
+              <h2 className={css.title}>{show.name}</h2>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

@@ -1,9 +1,8 @@
-/* Правильный путь и применяем к body */
-#root {
+/* #root {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 
 body {
   background-image: url('./assets/kilyan-sockalingum-nW1n9eNHOsc-unsplash.jpg');

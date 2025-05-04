@@ -1,15 +1,16 @@
 import { API_KEY, URL_SEARCH } from '../constants/constants';
 
-export const onSearchMovie = async (query) => {
+export const SearchMovie = async (query) => {
   try {
-    const response = await fetch(
-      `${URL_SEARCH}?query=${encodeURIComponent(
-        query
-      )}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`
-    );
-
-    const data = await response.json();
-    return data;
+    const url = `${URL_SEARCH}?query=${encodeURIComponent(
+      query
+    )}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const { results } = await response.json();
+    return results;
   } catch (error) {
     console.error('Error fetching movies:', error);
   }
