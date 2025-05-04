@@ -6,12 +6,12 @@ const Layout = () => {
   const location = useLocation();
   const isFavoritesPage = location.pathname.includes('favorites');
   return (
-    <div>
+    <div className={css.pageContent}>
       <div className={css.navContainer}>
         <h1 className={css.title}>
           {isFavoritesPage ? 'Favorites' : 'Movies'}
         </h1>
-        <nav className={css.navContainer}>
+        <nav className={css.navBar}>
           <Link className={css.link} to="/">
             Movies
           </Link>
