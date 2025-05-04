@@ -16,6 +16,19 @@
     }
 }
 
+.item {
+    padding: 1rem;
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+    list-style: none;
+    cursor: pointer;
+}
+
+.item:hover {
+    transform: scale(1.03);
+}
+
+
 .img {
     margin-bottom: auto;
     margin-top: auto;
@@ -26,10 +39,14 @@
 
 }
 
-.error {
-    color: red;
-}
+
 
 .title {
     color: white;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.error {
+    color: red;
 }

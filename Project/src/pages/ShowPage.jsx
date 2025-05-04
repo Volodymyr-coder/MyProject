@@ -1,10 +1,10 @@
 import React from 'react';
-import MovieList from '../components/MovieList';
+import ShowList from '../components/ShowList';
 
 const MoviesPages = () => {
   return (
     <div>
-      <MovieList />
+      <ShowList />
     </div>
   );
 };

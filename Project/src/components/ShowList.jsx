@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Loader from './Loader';
 import { fetchTrendingTv } from '../helpers/fetchTV';
-import css from '../css/MovieList.module.css';
+import css from '../css/ShowList.module.css';
 
 const MovieList = () => {
   const [showTv, setShowTv] = useState([]);
@@ -32,6 +32,7 @@ const MovieList = () => {
 
   return (
     <div>
+      <h1 className={css.title}>Recommended show to watch</h1>
       <ul className={css.gridContainer}>
         {showTv.map((show) => {
           const imageUrl = `https://image.tmdb.org/t/p/w500${show.backdrop_path}`;

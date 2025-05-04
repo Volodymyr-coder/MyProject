@@ -32,7 +32,7 @@ const Home = () => {
   }
   return (
     <>
-      <h1>Recommended movies to watch</h1>
+      <h1 className={css.title}>Recommended movies to watch</h1>
 
       <ul className={css.gridContainer}>
         {movies.map((movie) => (

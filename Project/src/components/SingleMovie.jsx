@@ -1,5 +1,6 @@
 import React from 'react';
 import css from '../css/SingleMovie.module.css';
+import HeartIcon from './HeartIcon';
 
 const SingleMovie = ({ movie, onClick }) => {
   if (!movie || !movie.backdrop_path) return null;
@@ -8,7 +9,10 @@ const SingleMovie = ({ movie, onClick }) => {
   return (
     <li className={css.item} onClick={onClick}>
       <img className={css.img} src={imageUrl} alt={movie.title} />
-      <h1 className={css.title}>{movie.title}</h1>
+      <div className={css.flex}>
+        <h2 className={css.title}>{movie.title}</h2>
+        <HeartIcon movie={movie} />
+      </div>
     </li>
   );
 };

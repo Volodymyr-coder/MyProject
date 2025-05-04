@@ -16,6 +16,25 @@
     }
 }
 
+.img {
+    margin-bottom: auto;
+    margin-top: auto;
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+
+.title {
+    color: white;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+
+
 .error {
     color: red;
 }
