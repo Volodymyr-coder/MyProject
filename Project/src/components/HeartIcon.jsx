@@ -3,19 +3,19 @@ import HeartRegular from '../assets/heart-regular.svg';
 import HeartSolid from '../assets/heart-solid.svg';
 import { useFavorites } from '../hooks/Hooks';
 
-const HeartIcon = ({ movie }) => {
+const HeartIcon = ({ item }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
 
   return (
     <div>
       <img
-        src={isFavorite(movie.id) ? HeartSolid : HeartRegular}
+        src={isFavorite(item.id) ? HeartSolid : HeartRegular}
         alt="heart"
         width={20}
         height={20}
         onClick={(e) => {
           e.stopPropagation();
-          toggleFavorite(movie.id);
+          toggleFavorite(item.id);
         }}
       />
     </div>

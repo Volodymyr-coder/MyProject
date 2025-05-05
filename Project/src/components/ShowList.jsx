@@ -2,19 +2,22 @@ import React, { useEffect, useState } from 'react';
 import Loader from './Loader';
 import { fetchTrendingTv } from '../helpers/fetchTV';
 import css from '../css/ShowList.module.css';
+import SingleShow from './SingleShow';
+import { useNavigate } from 'react-router-dom';
 
 const MovieList = () => {
-  const [showTv, setShowTv] = useState([]);
+  const [shows, setShow] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const getShow = async () => {
       try {
         setLoading(true);
         setError(null);
         const { results } = await fetchTrendingTv();
-        console.log(results);
-        setShowTv(results);
+        setShow(results);
       } catch (error) {
         setError('Something went wrong. Please try again...');
         console.log(error);
@@ -25,6 +28,10 @@ const MovieList = () => {
     getShow();
   }, []);
 
+  const handleShowClick = (id) => {
+    navigate(`/movie/${id}`);
+  };
+
   if (loading) return <Loader />;
   if (error) {
     return <p className={css.error}>{error}</p>;
@@ -34,15 +41,9 @@ const MovieList = () => {
     <div>
       <h1 className={css.title}>Recommended show to watch</h1>
       <ul className={css.gridContainer}>
-        {showTv.map((show) => {
-          const imageUrl = `https://image.tmdb.org/t/p/w500${show.backdrop_path}`;
-          return (
-            <li className={css.item} key={show.id}>
-              <img className={css.img} src={imageUrl} alt={show.name} />
-              <h2 className={css.title}>{show.name}</h2>
-            </li>
-          );
-        })}
+        {shows.map((show) => (
+          <SingleShow key={show.id} showInfo={show} onClick={handleShowClick} />
+        ))}
       </ul>
     </div>
   );

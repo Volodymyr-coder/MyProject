@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SingleMovie from './SingleMovie';
 import Loader from './Loader';
 import { fetchTrendingMovies } from '../helpers/fetchMovies';
@@ -9,6 +10,9 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     const getMovies = async () => {
       try {
@@ -26,6 +30,10 @@ const Home = () => {
     getMovies();
   }, []);
 
+  const handleMovieClick = (id) => {
+    navigate(`/movie/${id}`);
+  };
+
   if (loading) return <Loader />;
   if (error) {
     return <p className={css.error}>{error}</p>;
@@ -36,7 +44,11 @@ const Home = () => {
 
       <ul className={css.gridContainer}>
         {movies.map((movie) => (
-          <SingleMovie key={movie.id} movie={movie} />
+          <SingleMovie
+            onClick={handleMovieClick}
+            key={movie.id}
+            movieInfo={movie}
+          />
         ))}
       </ul>
     </>
