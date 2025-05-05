@@ -10,7 +10,6 @@ const Search = () => {
   const [error, setError] = useState(null);
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query');
-
   const navigate = useNavigate();
   useEffect(() => {
     if (!query) return;
@@ -47,7 +46,7 @@ const Search = () => {
               handleMovieClick(movie.id);
             }}
             key={movie.id}
-            movie={movie}
+            movieInfo={movie}
           />
         ))}
       </ul>

@@ -1,0 +1,40 @@
+.gridContainer {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 600px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1000px) {
+    .gridContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.img {
+    margin-bottom: auto;
+    margin-top: auto;
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+
+.title {
+    color: white;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+
+
+.error {
+    color: red;
+}

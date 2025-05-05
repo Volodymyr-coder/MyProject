@@ -1,23 +1,3 @@
-// import React from 'react';
-// import css from '../css/SingleMovie.module.css';
-// import HeartIcon from './HeartIcon';
-
-// const SingleShow = ({ show, onClick }) => {
-//   if (!show || !show.backdrop_path) return null;
-//   const imageUrl = `https://image.tmdb.org/t/p/w500${show.backdrop_path}`;
-//   return (
-//     <li className={css.item} onClick={onClick}>
-//       <img className={css.img} src={imageUrl} alt={show.name} />
-//       <div className={css.flex}>
-//         <h2 className={css.title}>{show.name}</h2>
-//         <HeartIcon item={show} />
-//       </div>
-//     </li>
-//   );
-// };
-
-// export default SingleShow;
-
 import React, { useEffect, useState } from 'react';
 import css from '../css/SingleMovie.module.css';
 import HeartIcon from './HeartIcon';
