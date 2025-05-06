@@ -18,7 +18,7 @@ const SingleShow = ({ showInfo, onClick }) => {
         if (!isNaN(id)) {
           const data = await fetchSingleShow(`${numberId}`);
           console.log(data);
-          setShow(data);
+          setShow({ ...data, media_type: 'tv' });
         } else {
           setShow(showInfo);
         }

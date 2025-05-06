@@ -9,13 +9,13 @@ const HeartIcon = ({ item }) => {
   return (
     <div>
       <img
-        src={isFavorite(item.id) ? HeartSolid : HeartRegular}
+        src={isFavorite(item.id, item.media_type) ? HeartSolid : HeartRegular}
         alt="heart"
         width={20}
         height={20}
         onClick={(e) => {
           e.stopPropagation();
-          toggleFavorite(item.id);
+          toggleFavorite(item.id, item.media_type);
         }}
       />
     </div>

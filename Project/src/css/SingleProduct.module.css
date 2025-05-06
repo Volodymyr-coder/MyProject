@@ -1,0 +1,56 @@
+.item {
+    padding: 1rem;
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+    list-style: none;
+    cursor: pointer;
+}
+
+.item:hover {
+    transform: scale(1.03);
+}
+
+.img {
+    margin-bottom: auto;
+    margin-top: auto;
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+.btn {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-left: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: lightgray;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.title {
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

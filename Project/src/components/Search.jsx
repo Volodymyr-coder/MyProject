@@ -19,7 +19,11 @@ const Search = () => {
         setLoading(true);
         setError(null);
         const results = await SearchMovie(query);
-        setResults(results);
+        const resultWiyhMediaType = results.map((item) => ({
+          ...item,
+          media_type: 'movie'
+        }));
+        setResults(resultWiyhMediaType);
       } catch (error) {
         setError('Error fetching movies');
         console.log(error);

@@ -4,6 +4,7 @@ export const FavoriteContext = createContext();
 
 const FavoriteProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
+  console.log(favorites);
 
   useEffect(() => {
     const stored = localStorage.getItem('favorites');
@@ -16,13 +17,23 @@ const FavoriteProvider = ({ children }) => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
-  const toggleFavorite = (id) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((favId) => favId !== id) : [...prev, id]
-    );
+  const toggleFavorite = (id, media_type) => {
+    setFavorites((prev) => {
+      const exists = prev.some(
+        (fav) => fav.id === id && fav.media_type === media_type
+      );
+      if (exists) {
+        return prev.filter(
+          (fav) => !(fav.id === id && fav.media_type === media_type)
+        );
+      } else {
+        return [...prev, { id, media_type }];
+      }
+    });
   };
 
-  const isFavorite = (id) => favorites.includes(id);
+  const isFavorite = (id, media_type) =>
+    favorites.some((fav) => fav.id === id && fav.media_type === media_type);
 
   return (
     <FavoriteContext.Provider value={{ favorites, toggleFavorite, isFavorite }}>

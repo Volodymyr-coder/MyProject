@@ -11,13 +11,14 @@ const SingleMovie = ({ movieInfo, onClick }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const numberId = Number(id);
+
   useEffect(() => {
     const getMovie = async () => {
       try {
         setLoading(true);
         if (!isNaN(id)) {
           const data = await fetchSingleMovie(`${numberId}`);
-          setMovie(data);
+          setMovie({ ...data, media_type: 'movie' });
         } else {
           setMovie(movieInfo);
         }
