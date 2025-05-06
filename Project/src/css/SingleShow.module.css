@@ -54,3 +54,10 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.flexImg {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: baseline;
+    justify-content: space-between;
+}

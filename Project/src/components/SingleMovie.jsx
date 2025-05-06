@@ -44,13 +44,15 @@ const SingleMovie = ({ movieInfo, onClick }) => {
         onClick(movie.id);
       }}
     >
-      <img className={css.img} src={imageUrl} alt={movie.title} />
+      <div className={css.flexImg}>
+        <HeartIcon item={movie} />
+        <img className={css.img} src={imageUrl} alt={movie.title} />
+      </div>
       <div className={css.flex}>
         <div>
           <h2 className={css.title}>{movie.title}</h2>
           <p>{movie.overview}</p>
         </div>
-        <HeartIcon item={movie} />
       </div>
     </li>
   );

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import css from '../css/SingleMovie.module.css';
+import css from '../css/SingleShow.module.css';
 import HeartIcon from './HeartIcon';
 import Loader from '../components/Loader';
 import { useParams } from 'react-router-dom';
@@ -44,13 +44,15 @@ const SingleShow = ({ showInfo, onClick }) => {
         onClick(show.id);
       }}
     >
-      <img className={css.img} src={imageUrl} alt={show.name} />
+      <div className={css.flexImg}>
+        <HeartIcon item={show} />
+        <img className={css.img} src={imageUrl} alt={show.name} />
+      </div>
       <div className={css.flex}>
         <div>
           <h2 className={css.title}>{show.name}</h2>
           <p>{show.overview}</p>
         </div>
-        <HeartIcon item={show} />
       </div>
     </li>
   );
