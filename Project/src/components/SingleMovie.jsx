@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import { fetchSingleMovie } from '../helpers/fetchSingleMovie';
 
 const SingleMovie = ({ movieInfo, onClick }) => {
-  console.log(movieInfo);
   const { id } = useParams();
   const [movie, setMovie] = useState();
   const [loading, setLoading] = useState(false);
@@ -46,7 +45,10 @@ const SingleMovie = ({ movieInfo, onClick }) => {
     >
       <img className={css.img} src={imageUrl} alt={movie.title} />
       <div className={css.flex}>
-        <h2 className={css.title}>{movie.title}</h2>
+        <div>
+          <h2 className={css.title}>{movie.title}</h2>
+          <p>{movie.overview}</p>
+        </div>
         <HeartIcon item={movie} />
       </div>
     </li>

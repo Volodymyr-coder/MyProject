@@ -8,6 +8,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import './App.css';
 import SearchPage from './pages/SearchPage';
 import FavoriteMoviePage from './pages/FavoriteMoviePage';
+import SingleShowPage from './pages/SingleShowPage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="show" element={<ShowPage />} />
         <Route path="movie/:id" element={<SingleMoviePage />} />
+        <Route path="show/:id" element={<SingleShowPage />} />
         <Route path="search" element={<SearchPage />} />
         <Route path="favorite" element={<FavoriteMoviePage />} />
       </Route>

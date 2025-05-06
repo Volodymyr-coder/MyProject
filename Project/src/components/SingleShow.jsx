@@ -7,7 +7,7 @@ import { fetchSingleShow } from '../helpers/fetchSingleTV';
 
 const SingleShow = ({ showInfo, onClick }) => {
   const { id } = useParams();
-  const [show, setShow] = useState();
+  const [show, setShow] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const numberId = Number(id);
@@ -46,7 +46,10 @@ const SingleShow = ({ showInfo, onClick }) => {
     >
       <img className={css.img} src={imageUrl} alt={show.name} />
       <div className={css.flex}>
-        <h2 className={css.title}>{show.name}</h2>
+        <div>
+          <h2 className={css.title}>{show.name}</h2>
+          <p>{show.overview}</p>
+        </div>
         <HeartIcon item={show} />
       </div>
     </li>

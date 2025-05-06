@@ -29,7 +29,7 @@ const MovieList = () => {
   }, []);
 
   const handleShowClick = (id) => {
-    navigate(`/movie/${id}`);
+    navigate(`/show/${id}`);
   };
 
   if (loading) return <Loader />;
