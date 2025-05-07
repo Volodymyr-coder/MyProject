@@ -2,18 +2,29 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr;
+    padding: 15px;
+
 }
 
 @media (min-width: 600px) {
     .gridContainer {
         grid-template-columns: repeat(2, 1fr);
+        padding: 15px;
+
     }
 }
 
 @media (min-width: 1000px) {
     .gridContainer {
         grid-template-columns: repeat(3, 1fr);
+        padding: 15px;
+
     }
+}
+
+.container {
+    padding: 15px;
+    margin: 0 10px;
 }
 
 .item {

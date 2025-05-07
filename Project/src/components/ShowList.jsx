@@ -38,7 +38,7 @@ const MovieList = () => {
   }
 
   return (
-    <div>
+    <div className={css.container}>
       <h1 className={css.title}>Recommended show to watch</h1>
       <ul className={css.gridContainer}>
         {shows.map((show) => (
